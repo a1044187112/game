@@ -1,6 +1,12 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 
+//导入JS
+var db = require("./DB/config");
+
+db.connect();
+
+
 var app = express();
 // 添加json解析
 app.use(bodyParser.json());

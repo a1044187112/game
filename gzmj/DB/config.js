@@ -1,5 +1,7 @@
+// 调用 node mysql 模块
 var mysql = require("mysql");
 
+// 连接mysql参数设置
 var connection = mysql.createConnection({
     host     : 'localhost',
     port     :  '3306',
@@ -8,23 +10,6 @@ var connection = mysql.createConnection({
     database : 'mj',
 });
 
+// 导出模块
 module.exports = connection;
 
-connection.connect(function(err){
-    console.log(err);
-    if (err) {
-        console.log('链接失败');
-    }else{
-        console.log('链接成功');
-    }
-});
-
-// connection.query("create table gameuser(Id int primary key auto_increment,User varchar(50) not null,RoomCard int)",function(error, results, fields){
-//     if (error) {
-//         console.log('创建失败');
-//     }else{
-//         console.log('创建成功');
-//     }
-// });
-
-// connection.end();
