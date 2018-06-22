@@ -1,2 +1,6 @@
 #热部署代码启动
-# supservisor server.js
+# supervisor server.js
+
+#json解析中间件（body-parser）
+npm install body-parser
+
