@@ -1,0 +1,10 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.mob.eclipsemodule'
+
+dependencies {
+	compile project(':ShareSDK')
+}
+
+EclipseModule{
+    debug Boolean.valueOf(debugTools)
+}
