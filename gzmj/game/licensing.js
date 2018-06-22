@@ -1,25 +1,20 @@
 
 let licensing  = {
 	
-	initPlayerCard : function (){ // 生成开始游戏时玩家的牌
+	initPlayerCard : function (playerLength,arr){ // 生成开始游戏时玩家的牌
 		if(!licensing.cardArr)
 			licensing.cardArr = licensing.disorderArr();
 		licensing.count = 0;
 		let n = 0;
-		let players = ["提莫","艾瑞莉亚",'崔斯特','戴安娜'];
-		for (let j = 0 ; j < players.length ; j++){
+		for (let j = 0 ; j < playerLength ; j++){
 			let playersCard = [];
-			if(j ==1 )  // 庄家拿走14张牌
-				n = 14;
-			else
-				n =13;
-			for(let i = 0 ; i < n ; i++){
+			for(let i = 0 ; i < 13 ; i++){
 				playersCard.push(licensing.cardArr[licensing.count]); // 按顺序拿抽走牌 
 				licensing.count++;
 			}
-			console.log(players[j]+":"+playersCard);
-			
+			arr.push(playersCard);
 		}
+		return arr;
 		
 	},
 
@@ -30,8 +25,12 @@ let licensing  = {
 
 	randomCard : function(){   // 游戏中随机发出一张牌
 
-		playersCard.push(licensing.cardArr[licensing.count]); // 按顺序拿抽走牌
+		let newCard = licensing.cardArr[licensing.count]; // 按顺序拿抽走牌
 		licensing.count++;
+		if(licensing.count<=108)
+			return newCard;
+		else
+			return false;
 	},
 
 	disorderArr : function(){ // 将牌型的有序数组打乱

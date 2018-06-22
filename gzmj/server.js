@@ -1,10 +1,10 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-let licensing = require('./game/licensing');
+let game = require('./game/game');
 let user = require("./user/user");
 
 
-licensing.initPlayerCard();
+game.gameStart();
 //导入JS
 var db = require("./DB/config");
 
