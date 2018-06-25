@@ -13,7 +13,7 @@ cc.Class({
         this.loginbutton.node.on('click',function(){
             
             console.log("登录");
-
+            
         },this);
 
     },
