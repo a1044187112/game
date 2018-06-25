@@ -352,8 +352,12 @@
     "pressedSprite": {
       "__uuid__": "193b701e-4831-4844-940a-28f56bc282df"
     },
-    "_N$hoverSprite": null,
-    "hoverSprite": null,
+    "_N$hoverSprite": {
+      "__uuid__": "1d49cfe5-c292-4f23-a2c0-44704dbf0faa"
+    },
+    "hoverSprite": {
+      "__uuid__": "1d49cfe5-c292-4f23-a2c0-44704dbf0faa"
+    },
     "_N$disabledSprite": {
       "__uuid__": "29158224-f8dd-4661-a796-1ffab537140e"
     },
