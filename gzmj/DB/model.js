@@ -24,11 +24,11 @@ function CreateTable(sql){
 
 // 用户表（ID,游戏ID,用户名，房卡，创建时间，登录时间）
 var gameuser =  'create table gameuser(' +
-                'Id int primary key,'+
+                'id int primary key auto_increment,'+
                 'GameID int not null,'+
                 'User varchar(50) not null,'+
                 'RoomCard int not null,'+
-                'CreateTime TIMESTAMP not null,'+
+                'CreateTime TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP,'+
                 'LoginTime TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP'+
             ')';
 
