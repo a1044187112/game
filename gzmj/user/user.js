@@ -21,5 +21,16 @@ let user = {
 
 	},
 
+	userMan : function(data,res){
+
+		let sql = "SELECT * FROM gameuser WHERE User='"+data.name+"';"; // 更加id查询
+		let userInfo = dbMan.dbQuery(sql);
+
+		res.send({
+			"login":"success",
+			"code":"0"
+		});
+	},
+
 }
 module.exports = user;
