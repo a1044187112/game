@@ -5,9 +5,14 @@ let game = {
 	gameStart : function(){ // 开始游戏
 		
 		let players = ["提莫","艾瑞莉亚",'崔斯特','戴安娜'];
-		let dealer = 0; // 当前获取牌的玩家
+	
+		let dealer = 0; // 当前获取牌的玩家 庄家下标
+
+
 		let playersCard = game.gamePlayer(players);
-		game.deleteCardArr = [[],[],[],[]];
+
+		game.deleteCardArr = [[],[],[],[]]; //记录每个玩家打出去的牌
+
 		game.playerDraw(playersCard,dealer,players);// 玩家出牌
 	},
 
@@ -41,13 +46,20 @@ let game = {
 
 		let deleteCard = playersCard[dealer].shift();  //要打出去一张牌  将打出去的牌存在数组中
 
+
+
 		//判断是否有玩家要碰 扛 胡
 		game.ispeng(playersCard,deleteCard,dealer);
+		console.log(players[dealer]+"出牌");
+
 
 		game.deleteCardArr[dealer].push(deleteCard); //记录每个玩家打出去的牌
 
+		console.log(players[dealer]+":打的牌"+deleteCard);
+
+		
 		dealer++;
-		game.playerDraw(playersCard,dealer); // 玩家出牌
+		game.playerDraw(playersCard,dealer,players); // 玩家出牌
 
 	},
 
@@ -68,6 +80,19 @@ let game = {
 	},
 
 	ishu : function(playersCard,newCard,dealer){ //  是否胡牌
+		if(game.isqys(playersCard[dealer])){  // 清一色
+			if(game.isxqd(playersCard[dealer],newCard)){// // 2 表示龙七对  1  表示小七对  0 表示没有虎牌
+				return true;
+			}else if(game.isddz(playersCard[dealer])){  // 是否大对子
+				return true;
+			}
+		}else{ // 不是清一色
+
+		}
+
+
+
+
 		let flag = false;
 		for(let i = 0 ; i < playersCard[dealer]-1 ; i++){
 			if(playersCard[dealer][i] == playersCard[dealer][i+1]){
@@ -96,6 +121,69 @@ let game = {
 				newArr.splice(newArr.indexOf(card+2),1) //  删除元素
 				game.isAGroup(newArr)
 			}else{
+				return false;
+			}
+		}
+	},
+
+	isqys : function(arr){ // 清一色
+		if(arr[arr.length-1]<10){
+			return true;
+		}else if(arr[0]>10 && arr[arr.length-1]<20){
+			return true;
+		}else if(arr[0]>20){
+			return true;
+		}else {
+			return false;
+		}
+	},
+
+	isxqd : function(arr,newCard){ // 是否时小七对
+		let count = 0 ;
+		let lqdCount = 0 ;
+		for(let i =0 ;i < arr.length ; i++){
+			if(i%2==0 && arr[i]==arr[i+1]){ // 判断有几对
+				count ++;
+			}
+			if(arr[i]==newCard){ // 判断是否有四个相同的牌 且和最新一张摸的牌相同  龙七对
+				lqdCount ++ ;
+			}
+
+		}
+		if(count==7&&lqdCount==4)  // 2 表示龙七对  1  表示小七对  0 表示错误
+			return 2;
+		else if(count==7)
+			return 1;
+		else 
+			return 0;
+	},
+
+	isddz : function(arr){ // 判断是否大长对子
+		let flag = false;
+		let newArr = arr;
+		for(let i = 0 ; i < newArr.length-1 ; i++){
+			// 先删除对子
+			if(newArr[i]==newArr[i+1]){ // 先去除对子
+				newArr.splice(i,2);
+				if(game.isddz1(newArr)){
+					flag = true;
+					return flag;
+				}
+			}
+		}
+		return flag;
+	},
+
+	isddz1 : function(arr){ 
+		for(let i = 0 ; i < arr.length ; i++){
+			if(arr[i]==arr[i+1]&&arr[i]==arr[i+2]){   // 如果有三个一组，则删除相邻三个
+				arr.splice(i,3);
+				if(arr.length==0){
+					return  true;
+				}else {
+					return game.isddz1(arr);
+				}
+			}else {
 				return false;
 			}
 		}

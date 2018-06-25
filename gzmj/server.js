@@ -32,18 +32,8 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.get('/', function(req, res) {
 
     res.send('凯恩!');
-    user.userInfo();
 });
 
-// app.post('/login', function(req, res, next) {
-// 	console.log("login请求");
-//   // 获取参数
-//   var data = req.body;
-//   console.log(data);
-//   console.log("post请求：参数", data);
-
-//   res.send('hello , world');
-// });
 app.post('/login',urlencodedParser,function(req,res){
 	if(!req.body){
 		res.sendStatus(400);

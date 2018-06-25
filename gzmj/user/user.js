@@ -1,36 +1,52 @@
 let dbMan = require("../DB/DBmanagement.js");
 let user = {
 	// 玩家注册
-	userInfo : function(){  // 随机生成用户id  8位 
+	userInfo : function(res){  // 随机生成用户id  8位 
 		let gameId = new Date().getTime(); //  游戏id
-		console.log(gameId);
-		let userName = "";
+		let userName = user.name;
 		let roomCard = 8; // 房卡
-		let sql = "INSERT INTO gameuser(Id,GameID,user,RoomCard) VALUES(0,?,?,?)";// 插入数据
+		let sql = "INSERT INTO gameuser(Id,GameID,User,RoomCard) VALUES(0,?,?,?)";// 插入数据
 		let addSqlParams = [gameId,userName,roomCard];
-		let result = dbMan.dbInsert(sql,addSqlParams);
-		console.log(result);
+
+		dbMan.dbInsert(sql,addSqlParams,user.resultPro,res);
+	
 	},
 
-	// 玩家登陆
-	userLogin : function(){
-		let loginTime = new Date().getTime();  // 登陆时间
-		let id  = 25354;
-		let sql = "SELECT * FROM gameuser WHERE id='"+id+"';"; // 更加id查询
-		let userInfo = dbMan.dbQuery(sql);
+	// // 玩家登陆
+	// userLogin : function(res){
+	// 	let loginTime = new Date().getTime();  // 登陆时间
+	// 	let id  = 25354;
+	// 	let sql = "SELECT * FROM gameuser WHERE id='"+id+"';"; // 更加id查询
 
+	// 	dbMan.dbQuery(sql,user.resultPro,res);
+
+	// },
+
+	userMan : function(data,res){ // 查询 如果有 返回用户数据 如果没有 注册并返回用户数据
+		user.name = data.name;
+		let sql = "SELECT * FROM gameuser WHERE User='"+data.name+"';"; // id查询
+
+		dbMan.dbQuery(sql,user.resultPro,res);
 	},
 
-	userMan : function(data,res){
+	resultPro : function(data,res){ //数据库请求结果返回
+		if(data.length==0){   // 如果没有数据 则注册用户  注册成功后返回用户信息
+		
+			user.userInfo(res);
+		
+		}if(data.insertId!=null){ // 根据插入id 查询该条数据
+		
+			let sql = "SELECT * FROM gameuser WHERE Id='"+data.insertId+"';"; // id查询
+			dbMan.dbQuery(sql,user.resultPro,res);
+		
+		}else{ // 返回查询结
 
-		let sql = "SELECT * FROM gameuser WHERE User='"+data.name+"';"; // 更加id查询
-		let userInfo = dbMan.dbQuery(sql);
-
-		res.send({
-			"login":"success",
-			"code":"0"
-		});
+			console.log(data);
+			res.send({"state":"success","code":0,"data":data});
+		
+		}
 	},
+
 
 }
 module.exports = user;
