@@ -1,7 +1,7 @@
 {
   "ver": "1.2.4",
-  "uuid": "9b79f41b-b690-4a9e-a623-e4976a52ef80",
-  "rawTextureUuid": "ab006eb3-cc34-4184-a666-8850ba289306",
+  "uuid": "21e70933-a60f-4d47-8890-51633c317585",
+  "rawTextureUuid": "8845e895-6bee-4415-9643-7e333b331871",
   "size": {
     "width": 1922,
     "height": 1189
@@ -10,8 +10,8 @@
   "subMetas": {
     "bg.png": {
       "ver": "1.0.3",
-      "uuid": "54a7d3c9-ac83-46ba-99e9-70e8c9048d34",
-      "rawTextureUuid": "ab006eb3-cc34-4184-a666-8850ba289306",
+      "uuid": "705bfb23-e898-43e0-96e8-035c866c1fa7",
+      "rawTextureUuid": "8845e895-6bee-4415-9643-7e333b331871",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
@@ -32,8 +32,8 @@
     },
     "loginbutton1.png": {
       "ver": "1.0.3",
-      "uuid": "1d49cfe5-c292-4f23-a2c0-44704dbf0faa",
-      "rawTextureUuid": "ab006eb3-cc34-4184-a666-8850ba289306",
+      "uuid": "db40d787-040e-4a4b-b607-b863ba3e9fa5",
+      "rawTextureUuid": "8845e895-6bee-4415-9643-7e333b331871",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
@@ -54,8 +54,8 @@
     },
     "loginbutton2.png": {
       "ver": "1.0.3",
-      "uuid": "193b701e-4831-4844-940a-28f56bc282df",
-      "rawTextureUuid": "ab006eb3-cc34-4184-a666-8850ba289306",
+      "uuid": "72a05976-b709-4a01-8766-b9a52d9d97c3",
+      "rawTextureUuid": "8845e895-6bee-4415-9643-7e333b331871",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
@@ -76,8 +76,8 @@
     },
     "yhxy.png": {
       "ver": "1.0.3",
-      "uuid": "6adfbd70-b6d7-4089-ae5e-d36cd36daa02",
-      "rawTextureUuid": "ab006eb3-cc34-4184-a666-8850ba289306",
+      "uuid": "7d750836-66b8-4af6-a1eb-b22b5f82e17f",
+      "rawTextureUuid": "8845e895-6bee-4415-9643-7e333b331871",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,

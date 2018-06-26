@@ -74,13 +74,13 @@
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>GameUI.png</string>
+            <string>LoginUI.png</string>
             <key>size</key>
             <string>{1922,1189}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:5c0f46f4b35845b4fca901c9f5e2efc1:abcee3bd08b5b9ab52837eea1419ebcd:2531ce2a050ca5e2ac51e04161e77adb$</string>
+            <string>$TexturePacker:SmartUpdate:f103b31200b179cb89a8aa18b70e3679:abcee3bd08b5b9ab52837eea1419ebcd:aca92f3721fcdc0b28ce8423e4f129e7$</string>
             <key>textureFileName</key>
-            <string>GameUI.png</string>
+            <string>LoginUI.png</string>
         </dict>
     </dict>
 </plist>
