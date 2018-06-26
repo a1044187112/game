@@ -56,9 +56,9 @@ let game = {
 		game.deleteCardArr[dealer].push(deleteCard); //记录每个玩家打出去的牌
 
 		console.log(players[dealer]+":打的牌"+deleteCard);
-
+		console.log("                ");
 		
-		dealer++;
+		dealer++; 
 		game.playerDraw(playersCard,dealer,players); // 玩家出牌
 
 	},
