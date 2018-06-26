@@ -12,16 +12,6 @@ let user = {
 	
 	},
 
-	// // 玩家登陆
-	// userLogin : function(res){
-	// 	let loginTime = new Date().getTime();  // 登陆时间
-	// 	let id  = 25354;
-	// 	let sql = "SELECT * FROM gameuser WHERE id='"+id+"';"; // 更加id查询
-
-	// 	dbMan.dbQuery(sql,user.resultPro,res);
-
-	// },
-
 	userMan : function(data,res){ // 查询 如果有 返回用户数据 如果没有 注册并返回用户数据
 		user.name = data.name;
 		let sql = "SELECT * FROM gameuser WHERE User='"+data.name+"';"; // id查询
@@ -46,6 +36,8 @@ let user = {
 		
 		}
 	},
+
+	
 
 
 }

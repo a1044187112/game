@@ -13,7 +13,7 @@ let dbMan = {
 		}); 
 	},
 
-	dbInsert : function(sql,addSqlParams,callback,res){ // 插入数据
+	dbInsert : function(sql,addSqlParams,callback,res){ // 登陆插入数据
 		connection.query(sql,addSqlParams,function (err, result) {
 	        if(err){
 	        	callback(err,res);
@@ -23,5 +23,28 @@ let dbMan = {
 	       	callback(result,res);        
 		});
 	},
+
+	queryRoomID : function(sql,callback,socket,userID,roomNumber){//  房间号查询
+		connection.query(sql,function (err, result) {
+	        if(err){
+	          callback(err,socket,userID,roomNumber);
+	          console.log('[SELECT ERROR] - ',err.message);
+	          return;
+	        }
+	        callback(result,socket,userID,roomNumber);
+		}); 
+	},
+
+	createRoomInsert : function(sql,addSqlParams,callback,socket){ // 创建房间
+		connection.query(sql,addSqlParams,function (err, result) {
+	        if(err){
+	        	callback(err,socket);
+	         	console.log('[INSERT ERROR] - ',err.message);
+	         	return;
+	        }        
+	       	callback(result,socket);        
+		});
+	},
+
 }
 module.exports = dbMan;

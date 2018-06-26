@@ -51,20 +51,20 @@ var RoomInformation = 'create table RoomInformation(' +
                       'UserID mediumtext not null,' +
                       'Gametype int not null,' +
                       'RoomInfo json not null,' +
-                      'GamePlayer varchar(100) not null' +
+                      'GamePlayer varchar(100) not null,' +
                       'Time TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP' +
                     ')';
 
 CreateTable(RoomInformation);
 
 // 战绩表
-var Record = 'create table Record(' +
-             'id int primary key auto_increment,'+
-             'UserID mediumtext not null,' +
-             'RecordInfo json not null,' +
-            ')';
+// var Record = 'create table Record(' +
+//              'id int primary key auto_increment,'+
+//              'UserID mediumtext not null,' +
+//              'RecordInfo json not null,' +
+//             ')';
 
-CreateTable(Record);
+// CreateTable(Record);
 
 // 关闭连接
 db.end();

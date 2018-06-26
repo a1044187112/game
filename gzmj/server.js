@@ -1,17 +1,15 @@
-var express = require('express');
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
 var bodyParser = require('body-parser');
 let game = require('./game/game');
 let user = require("./user/user");
+let gameRoomMan = require('./game/gameRoomMan');
 
 
-game.gameStart();
-//导入JS
-var db = require("./DB/config");
+// game.gameStart();
 
-db.connect();
-
-
-var app = express();
 app.all("*",function(req,res,next){  // 处理跨域问题
 	res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -22,17 +20,35 @@ app.all("*",function(req,res,next){  // 处理跨域问题
     next();
 });
 
-// 添加json解析
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({extended: false}));
-// 创建 application/x-www-form-urlencoded 编码解析
 var urlencodedParser = bodyParser.urlencoded({ extended: false }); 
 
 
 app.get('/', function(req, res) {
-
     res.send('凯恩!');
 });
+
+
+
+io.on('connection', function(socket){
+
+  console.log('a user connected');
+  //接收并处理客户端的hi事件
+    socket.on('createRoom', function(data) {
+        console.log(data);
+
+        gameRoomMan.createRoom(socket,data);
+        io.emit('hello', '成功创建房间');
+    });
+    
+
+  socket.on('disconnect', function(){
+
+    console.log('user disconnected');
+  
+  });
+
+});
+    
 
 app.post('/login',urlencodedParser,function(req,res){
 	if(!req.body){
@@ -45,4 +61,4 @@ app.post('/login',urlencodedParser,function(req,res){
   	user.userMan(data,res);// 如果数据库中没有该用户  则添加该用户 如果存在 则返回用户信息
 });
 
-app.listen(3000); 
+http.listen(3000); 
