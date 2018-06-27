@@ -28,18 +28,31 @@ app.get('/', function(req, res) {
 });
 
 
-
+let  roomUser = [];
 io.on('connection', function(socket){
 
-  console.log('a user connected');
+
+
+  user = username; // 将用户归类到房间 
+  
+ 
+
   //接收并处理客户端的hi事件
     socket.on('createRoom', function(data) { // 创建房间
         gameRoomMan.createRoom(socket,data);
+
+        if (!roomUser[data.roomID]) {  // 当前房间号数组 记录了加入当前房间的玩家
+		  	roomUser[data.roomID] = []; 
+		  	roomUser[data.roomID+"info"] = [];  // 用户存储创建房间信息  游戏类型 几人局  
+		} 
     });
  
     socket.on('joinRoom',function(data){ // 加入房间
+    	roomUser[data.roomID].push(data.userID); // 玩家加入到房间号指定的数组
+
     	gameRoomMan.joinRoom(socket,data);
-    	 socket.emit('joinRoom', '加入房间测试');
+
+    	socket.emit('joinRoom', '加入房间测试');
     });
 
    socket.on("leaveRoom",function(data){ // 退出房间
@@ -53,7 +66,12 @@ io.on('connection', function(socket){
    		socket.emit('leaveRoomExit', '退出房间测试');
    });
 
+    socket.on("gameStart",function(){ // 开始游戏 点击开始游戏之后再将房间信息存入到数据库
+   		game.gameStart(socket);
+   		socket.emit('gameStartResult', '开始游戏测试');
+   });
   // socket.on('disconnect', function(){
+
   //   console.log('user disconnected');
   
   // });
