@@ -33,19 +33,30 @@ io.on('connection', function(socket){
 
   console.log('a user connected');
   //接收并处理客户端的hi事件
-    socket.on('createRoom', function(data) {
-        console.log(data);
-
+    socket.on('createRoom', function(data) { // 创建房间
         gameRoomMan.createRoom(socket,data);
-        io.emit('hello', '成功创建房间');
     });
-    
+ 
+    socket.on('joinRoom',function(data){ // 加入房间
+    	gameRoomMan.joinRoom(socket,data);
+    	 socket.emit('joinRoom', '加入房间测试');
+    });
 
-  socket.on('disconnect', function(){
+   socket.on("leaveRoom",function(data){ // 退出房间
+   		gameRoomMan.leaveRoom(socket,data);
+   		socket.emit('leaveRoomExit', '退出房间测试');
+   });
 
-    console.log('user disconnected');
+
+   socket.on("DissolutionRoom",function(data){ // 离开房间
+   		gameRoomMan.dissolutionRoom(socket,data);
+   		socket.emit('leaveRoomExit', '退出房间测试');
+   });
+
+  // socket.on('disconnect', function(){
+  //   console.log('user disconnected');
   
-  });
+  // });
 
 });
     

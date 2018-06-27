@@ -25,12 +25,15 @@ let dbMan = {
 	},
 
 	queryRoomID : function(sql,callback,socket,userID,roomNumber){//  房间号查询
+		
 		connection.query(sql,function (err, result) {
+
 	        if(err){
 	          callback(err,socket,userID,roomNumber);
 	          console.log('[SELECT ERROR] - ',err.message);
 	          return;
 	        }
+
 	        callback(result,socket,userID,roomNumber);
 		}); 
 	},
@@ -43,6 +46,18 @@ let dbMan = {
 	         	return;
 	        }        
 	       	callback(result,socket);        
+		});
+	},
+
+	updateRoomPlayer : function(sql,addSqlParams){
+		connection.query(sql,addSqlParams,function (err, result) {
+			console.log(result);
+	        if(err){
+	        	// callback(err,socket);
+	         	console.log('[INSERT ERROR] - ',err.message);
+	         	return;
+	        }        
+	       	// callback(result,socket);        
 		});
 	},
 
