@@ -2,9 +2,7 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        out: cc.Button,
-        logout: cc.Button,
-        target: cc.Node,
+        
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -12,13 +10,19 @@ cc.Class({
     onLoad () {
 
         // 关闭窗口
-        this.out.node.on('click',function(){
+        let out = cc.find('bg/CloseButton',this.node).getComponent(cc.Button);
+        out.node.on('click',function(){
             // 删除窗口
-            this.target.destroy();
+            this.node.destroy();
+            
+            // 打开 所有按钮功能
+            cc.find('Canvas').getComponent('HallButton').CloseBtn(true);
+
         },this);
 
         // 注销事件
-        this.logout.node.on('click',function (){
+        let logout = cc.find('bg/logoutbutton',this.node).getComponent(cc.Button);
+        logout.node.on('click',function (){
             // 场景跳转            
             cc.director.loadScene('Login');
         },this);

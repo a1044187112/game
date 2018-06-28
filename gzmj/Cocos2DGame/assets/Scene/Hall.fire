@@ -180,8 +180,8 @@
     "_alignFlags": 45,
     "_left": 0,
     "_right": 0,
-    "_top": 2.842170943040401e-14,
-    "_bottom": -2.842170943040401e-14,
+    "_top": 0,
+    "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
     "_isAbsLeft": true,
@@ -269,8 +269,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -960,
-      "y": -540
+      "x": 0,
+      "y": 0
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -312,8 +312,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 337,
-      "height": 311
+      "width": 561,
+      "height": 550
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -321,8 +321,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 191,
-      "y": 169
+      "x": -625,
+      "y": 41
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -408,8 +408,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 1761,
-      "y": 923
+      "x": 799,
+      "y": 382
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -780,8 +780,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 960,
-      "y": 997
+      "x": -6,
+      "y": 465
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -943,8 +943,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 704,
-      "y": 498
+      "x": 895,
+      "y": 433
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1083,7 +1083,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 0
+      "y": 1
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1505,8 +1505,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 1290,
-      "y": 498
+      "x": 1471,
+      "y": 429
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -3138,30 +3138,6 @@
     "node": {
       "__id__": 2
     },
-    "_enabled": true,
-    "CreateRoomButton": {
-      "__id__": 25
-    },
-    "JoinGameButton": {
-      "__id__": 33
-    },
-    "RoomCard": {
-      "__id__": 39
-    },
-    "ShareItButton": {
-      "__id__": 45
-    },
-    "RecordButton": {
-      "__id__": 50
-    },
-    "EmailButton": {
-      "__id__": 55
-    },
-    "HowToPlayButton": {
-      "__id__": 60
-    },
-    "sett_prefab": {
-      "__uuid__": "cd3c4802-a68f-4175-a7a1-cf833ed245cd"
-    }
+    "_enabled": true
   }
 ]
