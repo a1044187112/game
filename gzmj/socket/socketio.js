@@ -6,8 +6,12 @@ let socketio = {
 	initSocket : function(io,roomUser){
 	
 		io.on('connection', function(socket){
+
 			socket.on('addAnno',function(data){ // 添加公告
+				// process.send("告诉主线程，我要添加公告");
 				set.addAnno(data,socket);
+				console.log("添加公告");
+				
 			});
 			socket.on('queryAnno',function(data){ // 查询公告
 				set.queryAnno(data,socket);
