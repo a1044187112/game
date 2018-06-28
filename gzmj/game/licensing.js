@@ -1,7 +1,8 @@
 
 let licensing  = {
 	
-	initPlayerCard : function (playerLength,arr){ // 生成开始游戏时玩家的牌
+	initPlayerCard : function (playerLength){ // 生成开始游戏时玩家的牌
+		let arr = [];
 		if(!licensing.cardArr)
 			licensing.cardArr = licensing.disorderArr();
 		licensing.count = 0;

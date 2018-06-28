@@ -8,12 +8,18 @@ const dbMan = require('../DB/DBmanagement');
 
 let gameRoomMan =  {  // 创建房间号 随机生成6位数 ，如果有重复，则重新生成
 	
-	createRoom : function(socket,userID){
+	createRoom : function(roomUser){
 		
 		let roomNumber = parseInt(Math.random()*900000+100000);	
-		let sql =  "SELECT * FROM RoomInformation WHERE RoomID ='"+roomNumber+"';";
 
-		dbMan.queryRoomID(sql,gameRoomMan.queryRoomIDResult,socket,userID,roomNumber);
+		if(!roomUser[roomID]) // 如果房间号不存在  返回房间号
+			return roomNumber;
+		else // 如果房间号存在 重新创建房间号
+			gameRoomMan.createRoom(roomUser);
+
+		// let sql =  "SELECT * FROM RoomInformation WHERE RoomID ='"+roomNumber+"';";
+
+		// dbMan.queryRoomID(sql,gameRoomMan.queryRoomIDResult,socket,userID,roomNumber);
 	},
 
 

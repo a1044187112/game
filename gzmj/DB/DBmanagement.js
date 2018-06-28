@@ -24,6 +24,10 @@ let dbMan = {
 		});
 	},
 
+
+
+
+
 	queryRoomID : function(sql,callback,socket,userID,roomNumber){//  房间号查询
 		
 		connection.query(sql,function (err, result) {

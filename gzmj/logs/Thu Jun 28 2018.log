@@ -1,0 +1,1 @@
+[2018-06-28T11:47:57.986] [INFO] logFile - ::1 - - "POST /login HTTP/1.1" 200 175 "http://127.0.0.1:8020/HelloHBuilder/ajax.html?__hbt=1530157480547" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.10 Safari/537.36"
