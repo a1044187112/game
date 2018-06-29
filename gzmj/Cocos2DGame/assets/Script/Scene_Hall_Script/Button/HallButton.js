@@ -8,7 +8,12 @@ cc.Class({
 
 
     onLoad () {
+
         this.Settings();
+        this.HowToPlay();
+        this.Eamil();
+        this.Record();
+        this.ShareIt();
     },
     
     start () {
@@ -47,11 +52,9 @@ cc.Class({
     Settings: function() {
         
         // 查找场景中的物体
-        let SettingsButton = cc.find('Button/SettingsButton',this.node);
+        let SettingsButton = cc.find('Button/SettingsButton',this.node).getComponent(cc.Button);
 
-        let button = SettingsButton.getComponent(cc.Button);
-
-        button.node.on('click',function() {
+        SettingsButton.node.on('click',function() {
             
             // 获取当前场景
             // let scene = cc.director.getScene();
@@ -83,6 +86,134 @@ cc.Class({
 
         },this);
 
-    }
+    },
+
+    HowToPlay : function(){
+
+        // 获取组件
+        let HowToPlayButton = cc.find('Button/HowToPlayButton',this.node).getComponent(cc.Button);
+
+        // 点击函数
+        HowToPlayButton.node.on('click',function(){
+
+            // 动态加载资源
+            let target = this;
+            cc.loader.loadRes('HowToPlay',function(err,prefab){
+                
+                if(prefab){
+
+                    // 克隆
+                    let howto = cc.instantiate(prefab);
+
+                    // 加入场景
+                    target.node.addChild(howto);
+
+                    target.CloseBtn(false);
+
+                }else{
+                    console.log(err);
+                }
+
+            });
+
+        },this)
+
+    },
+
+    Eamil :function(){
+
+         // 获取组件
+         let EmailButton = cc.find('Button/EmailButton',this.node).getComponent(cc.Button);
+
+         // 点击函数
+         EmailButton.node.on('click',function(){
+ 
+             // 动态加载资源
+             let target = this;
+             cc.loader.loadRes('Eamil',function(err,prefab){
+                 
+                 if(prefab){
+ 
+                     // 克隆
+                     let eamil = cc.instantiate(prefab);
+ 
+                     // 加入场景
+                     target.node.addChild(eamil);
+ 
+                     target.CloseBtn(false);
+ 
+                 }else{
+                     console.log(err);
+                 }
+ 
+             });
+ 
+         },this)
+
+    },
+
+    Record :function(){
+
+        // 获取组件
+        let RecordButton = cc.find('Button/RecordButton',this.node).getComponent(cc.Button);
+
+        // 点击函数
+        RecordButton.node.on('click',function(){
+
+            // 动态加载资源
+            let target = this;
+            cc.loader.loadRes('Record',function(err,prefab){
+                
+                if(prefab){
+
+                    // 克隆
+                    let eamil = cc.instantiate(prefab);
+
+                    // 加入场景
+                    target.node.addChild(eamil);
+
+                    target.CloseBtn(false);
+
+                }else{
+                    console.log(err);
+                }
+
+            });
+
+        },this)
+
+    },
+
+    ShareIt :function(){
+
+        // 获取组件
+        let ShareItButton = cc.find('Button/ShareItButton',this.node).getComponent(cc.Button);
+
+        // 点击函数
+        ShareItButton.node.on('click',function(){
+
+            // 动态加载资源
+            let target = this;
+            cc.loader.loadRes('ShareIt',function(err,prefab){
+                
+                if(prefab){
+
+                    // 克隆
+                    let eamil = cc.instantiate(prefab);
+
+                    // 加入场景
+                    target.node.addChild(eamil);
+
+                    target.CloseBtn(false);
+
+                }else{
+                    console.log(err);
+                }
+
+            });
+
+        },this)
+
+    },
 
 });

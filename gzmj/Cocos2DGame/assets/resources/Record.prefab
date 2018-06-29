@@ -10,7 +10,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "HowToPlay",
+    "_name": "Record",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
@@ -155,9 +155,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "91db1adb-d1b8-4db3-b198-11f7bf7bb91c"
+      "__uuid__": "3e924258-9ff6-4d64-911d-657bc95f7095"
     },
-    "fileId": "58/uEk0fxCg53Dy42qQaKS",
+    "fileId": "76O1AVSmxEQr8zU6JZsL7D",
     "sync": false
   },
   {
@@ -202,8 +202,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1426,
-      "height": 888
+      "width": 1769,
+      "height": 1087
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -259,8 +259,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 131,
-      "height": 110
+      "width": 105,
+      "height": 105
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -268,8 +268,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 569,
-      "y": 314
+      "x": 759,
+      "y": 353
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -287,7 +287,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "3c3eac87-11f6-4396-beb1-64de3afe31de"
+      "__uuid__": "1ad2a1da-dce7-41a6-ba38-05ec56f43265"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -303,7 +303,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_atlas": {
-      "__uuid__": "67355695-54b2-4669-8825-2ad057a1fb86"
+      "__uuid__": "29238ea3-af47-44fb-a09c-f378f2b21fb4"
     }
   },
   {
@@ -349,7 +349,7 @@
       "a": 255
     },
     "_N$normalSprite": {
-      "__uuid__": "3c3eac87-11f6-4396-beb1-64de3afe31de"
+      "__uuid__": "1ad2a1da-dce7-41a6-ba38-05ec56f43265"
     },
     "_N$pressedSprite": {
       "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
@@ -376,9 +376,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "91db1adb-d1b8-4db3-b198-11f7bf7bb91c"
+      "__uuid__": "3e924258-9ff6-4d64-911d-657bc95f7095"
     },
-    "fileId": "61rymcqT1Pz4Y72sJIPgQP",
+    "fileId": "04lvjzCiZAbbsI/CxGlLfB",
     "sync": false
   },
   {
@@ -390,7 +390,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "50378d30-db28-4b5e-92eb-a97a1949f449"
+      "__uuid__": "3aac0c45-c8f9-451a-9c12-b7c3186ca2b7"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -406,7 +406,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_atlas": {
-      "__uuid__": "67355695-54b2-4669-8825-2ad057a1fb86"
+      "__uuid__": "29238ea3-af47-44fb-a09c-f378f2b21fb4"
     }
   },
   {
@@ -433,13 +433,13 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "91db1adb-d1b8-4db3-b198-11f7bf7bb91c"
+      "__uuid__": "3e924258-9ff6-4d64-911d-657bc95f7095"
     },
-    "fileId": "38x8azEX5J25LH1jBxc6EP",
+    "fileId": "edAuAed/FMua7CIZ030RTn",
     "sync": false
   },
   {
-    "__type__": "88a75FTAoNNUL5XRGLzM9Q1",
+    "__type__": "f0cbeqw4vRKa6TuxgcyaLN5",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -453,9 +453,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "91db1adb-d1b8-4db3-b198-11f7bf7bb91c"
+      "__uuid__": "3e924258-9ff6-4d64-911d-657bc95f7095"
     },
-    "fileId": "63NTTTnzJCGKxbA3Q/XCJd",
+    "fileId": "1aQWcBZ4ZFvI4Wk2Q2tBnO",
     "sync": false
   }
 ]

@@ -434,7 +434,7 @@
       "b": 255,
       "a": 255
     },
-    "duration": 0.2,
+    "duration": 0.1,
     "zoomScale": 0.8,
     "clickEvents": [],
     "_N$interactable": true,
