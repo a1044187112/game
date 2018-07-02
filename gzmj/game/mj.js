@@ -1,3 +1,5 @@
+let score = require('./score');
+
 let mj  = {
 	start : function() {
 		let newCard = 8;
@@ -23,6 +25,19 @@ let mj  = {
 		// mj.lqd(card,newCard); // 判断是否是龙七对
 		// mj.ddz(card,newCard);//  判断是否大对子
 		// mj.hu(card,newCard); // 判断是否胡牌
+
+		let mjType = {
+			"hu":1, //  1 自摸  2  放炮
+			"huType":"普通牌型",// 普通牌型 大对子 清一色 小七对 清大对 清小七对 龙七对 清龙七对
+			"jipai":[1,3,4,5,6],// 1代表翻牌鸡 2 摇摆鸡 3 本鸡 4乌骨鸡 5星期鸡 6 吹风鸡
+			"gameType":1 // 1 一扣二 2 连庄 3 通三
+		};
+		let allCard = {
+			"card":card,"pengpaiArr":pengpaiArr,"gangpai":gangpai,"chupai":chupai
+		}; 
+		let fanjipai = 5;
+		score.mjType(mjType,allCard,fanjipai);
+		// score.cardTypeScore("普通牌型");//如果黄庄且下教 获取牌型分
 		
 	},
 
