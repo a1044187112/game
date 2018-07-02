@@ -3,32 +3,44 @@ cc.Class({
 
     // 获取组件
     properties: {
-        loginbutton: cc.Button,
+
     },
 
     // use this for initialization
     onLoad: function () {
 
-        //登录按钮点击事件
-        this.loginbutton.node.on('click',function(){
-            
-            console.log("登录");
+        let loginbutton = cc.find('button',this.node).getComponent(cc.Button);
 
+        //登录按钮点击事件
+        loginbutton.node.on('click',function(){
+            
             // 登录接口IP
             let url = "http://192.168.1.162:3000/login";
             
             // 要传送的数据
             // let data = JSON.stringify({"name":"test"});
             let data = "name=test&age=16&id=05";
-            
+
             // 解析传送过来的 JSON 数据
             let test = JSON.parse(this.http("POST",url,data));
             
-            console.log(test);
-
             if (test.state = "success") {
                 
-                cc.director.loadScene("Hall");
+                // 获取勾选框
+                let isCked = cc.find('toggle',this.node).getComponent(cc.Toggle).isChecked;
+                
+                if(isCked){
+                    
+                    cc.director.loadScene("Hall");
+                    
+                    console.log(test);
+
+                }else{
+                    
+                    console.log("请勾选用户协议");
+
+                }
+
 
             }else{
 

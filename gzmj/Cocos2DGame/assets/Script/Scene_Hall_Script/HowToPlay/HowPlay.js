@@ -15,6 +15,7 @@ cc.Class({
             cc.find('Canvas').getComponent('HallButton').CloseBtn(true);
 
         },this);
+
     },
 
     start () {
