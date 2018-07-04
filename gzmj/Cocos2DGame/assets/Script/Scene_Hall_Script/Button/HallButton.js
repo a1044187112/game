@@ -14,6 +14,8 @@ cc.Class({
         this.Eamil();
         this.Record();
         this.ShareIt();
+        this.Recharge();
+        this.JoinGame();
     },
     
     start () {
@@ -88,6 +90,7 @@ cc.Class({
 
     },
 
+    // 玩法说明按钮
     HowToPlay : function(){
 
         // 获取组件
@@ -120,6 +123,7 @@ cc.Class({
 
     },
 
+    // 信息按钮
     Eamil :function(){
 
          // 获取组件
@@ -152,6 +156,7 @@ cc.Class({
 
     },
 
+    // 战绩按钮
     Record :function(){
 
         // 获取组件
@@ -184,6 +189,7 @@ cc.Class({
 
     },
 
+    // 分享按钮
     ShareIt :function(){
 
         // 获取组件
@@ -211,6 +217,60 @@ cc.Class({
                 }
 
             });
+
+        },this)
+
+    },
+
+    // 充值房卡按钮
+    Recharge :function(){
+
+        cc.find('Button/RoomCard/button',this.node).getComponent(cc.Button).node.on('click',function(){
+
+            let target = this;
+            cc.loader.loadRes('Recharge',function(err,prefab){
+
+                if(prefab){
+
+                    // 克隆
+                    let Recharge = cc.instantiate(prefab);
+
+                    target.node.addChild(Recharge);
+
+                    target.CloseBtn(false);
+
+                }else{
+                    console.log(err);
+                }
+
+            })
+
+        },this);
+
+    },
+
+    JoinGame :function(){
+
+        cc.find('Button/JoinGameButton',this.node).getComponent(cc.Button).node.on('click',function(){
+
+            let target = this;
+            cc.loader.loadRes('JoinGame',function(err,prefab){
+
+                if (prefab) {
+                    
+                    let JoinGame = cc.instantiate(prefab);
+
+                    target.node.addChild(JoinGame);
+
+                    target.CloseBtn(false);
+
+                }else{
+
+                    console.log(err);
+
+                }
+
+            })
 
         },this)
 
