@@ -14,13 +14,131 @@ cc.Class({
 
             cc.find('Canvas').getComponent('HallButton').CloseBtn(true);
 
-        },this)
-        
+        },this);
+
+        this.GameNumber();
+
     },
 
     start () {
 
     },
 
-    // update (dt) {},
+    // update (dt) {
+    // },
+
+    GameNumber(){
+
+        let number = new Array();
+
+        cc.find('bg/Layout/0',this.node).getComponent(cc.Button).node.on('click',function(){
+
+            if (number.length < 6) {
+                number.push(0);
+            }
+
+            cc.find('bg/TextBox/Number',this.node).getComponent(cc.Label).string = number.toString();
+
+        },this);
+
+        cc.find('bg/Layout/1',this.node).getComponent(cc.Button).node.on('click',function(){
+
+            if (number.length < 6) {
+                number.push(1);
+            }
+
+            cc.find('bg/TextBox/Number',this.node).getComponent(cc.Label).string = number.toString();
+
+            
+        },this);
+
+        cc.find('bg/Layout/2',this.node).getComponent(cc.Button).node.on('click',function(){
+
+            if (number.length < 6) {
+                number.push(2);
+            }
+            
+            cc.find('bg/TextBox/Number',this.node).getComponent(cc.Label).string = number.toString();
+
+        },this);
+
+        cc.find('bg/Layout/3',this.node).getComponent(cc.Button).node.on('click',function(){
+
+            if (number.length < 6) {
+                number.push(3);
+            }
+            
+            cc.find('bg/TextBox/Number',this.node).getComponent(cc.Label).string = number.toString();
+            
+        },this);
+
+        cc.find('bg/Layout/4',this.node).getComponent(cc.Button).node.on('click',function(){
+
+            if (number.length < 6) {
+                number.push(4);
+            }
+            
+            cc.find('bg/TextBox/Number',this.node).getComponent(cc.Label).string = number.toString();
+
+        },this);
+
+        cc.find('bg/Layout/5',this.node).getComponent(cc.Button).node.on('click',function(){
+
+            if (number.length < 6) {
+                number.push(5);
+            }
+
+            cc.find('bg/TextBox/Number',this.node).getComponent(cc.Label).string = number.toString();
+            
+        },this);
+
+        cc.find('bg/Layout/6',this.node).getComponent(cc.Button).node.on('click',function(){
+
+            if (number.length < 6) {
+                number.push(6);
+            }
+            
+            cc.find('bg/TextBox/Number',this.node).getComponent(cc.Label).string = number.toString();
+
+        },this);
+
+        cc.find('bg/Layout/7',this.node).getComponent(cc.Button).node.on('click',function(){
+
+            if (number.length < 6) {
+                number.push(7);
+            }
+            
+            cc.find('bg/TextBox/Number',this.node).getComponent(cc.Label).string = number.toString();
+
+        },this);
+
+        cc.find('bg/Layout/8',this.node).getComponent(cc.Button).node.on('click',function(){
+
+            if (number.length < 6) {
+                number.push(8);
+            }
+            
+            cc.find('bg/TextBox/Number',this.node).getComponent(cc.Label).string = number.toString();
+
+        },this);
+
+        cc.find('bg/Layout/9',this.node).getComponent(cc.Button).node.on('click',function(){
+
+            if (number.length < 6) {
+                number.push(9);
+            }
+
+            cc.find('bg/TextBox/Number',this.node).getComponent(cc.Label).string = number;
+
+        },this);
+
+        cc.find('bg/Layout/Drop',this.node).getComponent(cc.Button).node.on('click',function(){
+
+            number = [];
+
+            cc.find('bg/TextBox/Number',this.node).getComponent(cc.Label).string = number;
+
+        },this);
+
+    },
 });
