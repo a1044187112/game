@@ -16,6 +16,7 @@ cc.Class({
         this.ShareIt();
         this.Recharge();
         this.JoinGame();
+        this.CreateGame();
     },
     
     start () {
@@ -249,6 +250,7 @@ cc.Class({
 
     },
 
+    // 加入房间按钮
     JoinGame :function(){
 
         cc.find('Button/JoinGameButton',this.node).getComponent(cc.Button).node.on('click',function(){
@@ -261,6 +263,34 @@ cc.Class({
                     let JoinGame = cc.instantiate(prefab);
 
                     target.node.addChild(JoinGame);
+
+                    target.CloseBtn(false);
+
+                }else{
+
+                    console.log(err);
+
+                }
+
+            })
+
+        },this)
+
+    },
+
+    // 创建房间按钮
+    CreateGame :function(){
+
+        cc.find('Button/CreateRoom/CreateRoomBG',this.node).getComponent(cc.Button).node.on('click',function(){
+
+            let target = this;
+            cc.loader.loadRes('CreateRoom',function(err,prefab){
+
+                if (prefab) {
+                    
+                    let CreateRoom = cc.instantiate(prefab);
+
+                    target.node.addChild(CreateRoom);
 
                     target.CloseBtn(false);
 

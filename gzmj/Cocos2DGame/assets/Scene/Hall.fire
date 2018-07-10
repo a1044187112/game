@@ -1645,7 +1645,7 @@
     "node": {
       "__id__": 35
     },
-    "_enabled": false,
+    "_enabled": true,
     "transition": 3,
     "pressedColor": {
       "__type__": "cc.Color",
