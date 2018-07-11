@@ -27,11 +27,11 @@ cc.Class({
     CloseBtn : function (whether){
 
         // 创建房间按钮
-        cc.find('Button/CreateRoom',this.node).getComponent(cc.Button).interactable = whether;
+        cc.find('Button/CreateRoom/CreateBtn',this.node).getComponent(cc.Button).interactable = whether;
     
         // 加入房间按钮
         cc.find('Button/JoinGameButton',this.node).getComponent(cc.Button).interactable = whether;
-    
+
         // 房卡按钮
         cc.find('Button/RoomCard/button',this.node).getComponent(cc.Button).interactable = whether;
     
@@ -281,7 +281,7 @@ cc.Class({
     // 创建房间按钮
     CreateGame :function(){
 
-        cc.find('Button/CreateRoom/CreateRoomBG',this.node).getComponent(cc.Button).node.on('click',function(){
+        cc.find('Button/CreateRoom/CreateBtn',this.node).getComponent(cc.Button).node.on('click',function(){
 
             let target = this;
             cc.loader.loadRes('CreateRoom',function(err,prefab){

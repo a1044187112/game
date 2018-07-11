@@ -1,3 +1,7 @@
+
+// 储存要加入的房间号，用于发送后台
+let number = new Array();
+
 cc.Class({
     extends: cc.Component,
 
@@ -8,8 +12,11 @@ cc.Class({
 
     onLoad () {
        
+        // 关闭按钮
         cc.find('cover',this.node).getComponent(cc.Button).node.on('click',function () {
             
+            number = [];
+
             this.node.destroy();
 
             cc.find('Canvas').getComponent('HallButton').CloseBtn(true);
@@ -28,8 +35,6 @@ cc.Class({
     // },
 
     GameNumber(){
-
-        let number = new Array();
 
         cc.find('bg/Layout/0',this.node).getComponent(cc.Button).node.on('click',function(){
 
