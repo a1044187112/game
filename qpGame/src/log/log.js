@@ -4,7 +4,7 @@ log4js.configure({
         out: { type: 'console' }, //控制台输出  
         app: {
             type: "dateFile",
-            filename: './src/log/logs/'+(new Date()).toDateString()+'.log',
+            filename: './log/logs/'+(new Date()).toDateString()+'.log',
             pattern: "_yyyy-MM-dd",
             alwaysIncludePattern: false,
         }//日期文件格式  

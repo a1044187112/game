@@ -1,0 +1,2 @@
+[2018-07-16T14:58:04.108] [INFO] logFile - ::1 - - "GET / HTTP/1.1" 200 7 "" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.10 Safari/537.36"
+[2018-07-16T14:58:04.129] [INFO] logFile - ::1 - - "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.10 Safari/537.36"
