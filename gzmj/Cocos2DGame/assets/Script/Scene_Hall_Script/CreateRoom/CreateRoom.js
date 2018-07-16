@@ -11,9 +11,7 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    onLoad () {
-        
-    },
+    // onLoad () {},
     
     
     start () {
@@ -28,10 +26,20 @@ cc.Class({
         },this);
         
         this.DataSelect();
+
+        // 创建房间按钮
+        cc.find('bg/CraeteButton',this.node).getComponent(cc.Button).node.on('click',function(){
+
+            // 场景跳转
+            cc.director.loadScene("Game");
+
+        },this);
+        
     },
     
     // update (dt) {},
 
+    // 选项按键函数
     DataSelect (){
 
         // 局数选着按钮
@@ -166,4 +174,5 @@ cc.Class({
         },this);
 
     },
+
 });

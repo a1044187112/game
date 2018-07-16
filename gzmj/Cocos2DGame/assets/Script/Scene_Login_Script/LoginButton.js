@@ -22,31 +22,34 @@ cc.Class({
             let data = "name=test&age=16&id=05";
 
             // 解析传送过来的 JSON 数据
-            let test = JSON.parse(this.http("POST",url,data));
+            // let test = JSON.parse(this.http("POST",url,data));
+
+            cc.director.loadScene("Hall");
             
-            if (test.state = "success") {
+            // if (test.state = "success") {
                 
-                // 获取勾选框
-                let isCked = cc.find('toggle',this.node).getComponent(cc.Toggle).isChecked;
+            //     // 获取勾选框
+            //     let isCked = cc.find('toggle',this.node).getComponent(cc.Toggle).isChecked;
                 
-                if(isCked){
+            //     if(isCked){
                     
-                    cc.director.loadScene("Hall");
+            //         // 场景跳转
+            //         cc.director.loadScene("Hall");
                     
-                    console.log(test);
+            //         console.log(test);
 
-                }else{
+            //     }else{
                     
-                    console.log("请勾选用户协议");
+            //         console.log("请勾选用户协议");
 
-                }
+            //     }
 
 
-            }else{
+            // }else{
 
-                console.log("登录失败");
+            //     console.log("登录失败");
 
-            }
+            // }
 
         },this);
 
