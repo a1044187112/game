@@ -1,12 +1,14 @@
 
 let score = {
 	mjType : function (mjType,allCard,fanjipai) {
+
 		let count = 0;
 		score.difen = 1; // 低分
 		count += score.huTypeScore(mjType);//胡牌牌分
 		count += score.jipaiScore(mjType,allCard,fanjipai);
+		return count;
 	},
-	
+
 	huTypeScore : function(mjType){
 		let lianzhuang = 3; // 连庄次数
 		let count = 0;
@@ -98,6 +100,7 @@ let score = {
 		}
 		return count;
 	},
+
 	typeFour : function(cardArray,fanjipai){ // 乌骨鸡或者妖姬
 		let yaoji = 11; // 妖姬
 		let batong = 28; // 八筒
@@ -119,6 +122,7 @@ let score = {
 
 		return countYaoji+countBatong;
 	},
+	
 	typeFive : function(cardArray){  // 星期鸡
 		let fanjipai = (new Date()).getUTCDay();
 		let count = 0;
