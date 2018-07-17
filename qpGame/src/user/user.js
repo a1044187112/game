@@ -69,6 +69,11 @@ var user = {
 			dbcon.update(whereStr,updateStr,function(result){
 				res.send({"code":103,"remark":"密码修改成功"});
 			});
+		}else if(data.status == 'bankCard'){
+			var updateStr = {$set: { "bankCard":data.bankCard,"name":data.name,"bank":data.bank }};
+			dbcon.update(whereStr,updateStr,function(result){
+				res.send({"code":104,"remark":"添加银行卡成功"});
+			});
 		}
 	},
 
