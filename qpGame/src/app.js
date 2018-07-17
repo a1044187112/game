@@ -5,10 +5,10 @@ let http = require('http').Server(app);
 let bodyParser = require('body-parser');
 let urlencodedParser = bodyParser.urlencoded({ extended: false }); 
 let log = require('./log/log');
-let userModel = require('./dbManagement/dbconnect').userModel;
-// import dbconnect from './dbManagement/dbconnect';
-// let dbcon = new dbconnect();
-dbconnect.find();
+
+let user = require('./user/user');
+
+// dbcon.insert();
 log.use(app); 
 
 
@@ -33,10 +33,20 @@ app.post('/login',urlencodedParser,function(req,res){
     res.sendStatus(400); 
     return;
   }
-  console.log("login请求");
   var data = req.body;
-    console.log(req.body);
-    user.userMan(data,res);// 如果数据库中没有该用户  则添加该用户 如果存在 则返回用户信息
+    user.accoundData(data,res);// 如果数据库中没有该用户  则添加该用户 如果存在 则返回用户信息
 }); 
+
+app.post('/modify/info',urlencodedParser,function(req,res){
+  if(!req.body){
+    res.sendStatus(400); 
+    return;
+  }
+  var data = req.body;
+  user.modifyUserInfo(data,res);// 如果数据库中没有该用户  则添加该用户 如果存在 则返回用户信息
+}); 
+
+
+
 
 http.listen(3000); 
