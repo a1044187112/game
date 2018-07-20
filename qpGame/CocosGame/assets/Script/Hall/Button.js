@@ -16,8 +16,9 @@ cc.Class({
         this.Personal();
         this.Recording();
         this.Recharge();
-        this.Withdraw(); 
-
+        this.Withdraw();
+        this.GameScene();
+        
     },
 
     // update (dt) {},
@@ -200,4 +201,38 @@ cc.Class({
         },this);
 
     },
+
+    // 游戏场景跳转
+    GameScene () {
+
+        // 炸金花
+        cc.find('Games/zjh',this.node).getComponent(cc.Button).node.on('click',function(){
+            
+            cc.director.loadScene('Game');
+
+        },this);
+
+         // 十三道
+         cc.find('Games/13D',this.node).getComponent(cc.Button).node.on('click',function(){
+            
+            cc.director.loadScene('Game');
+
+        },this);
+
+         // 四人牛牛
+         cc.find('Games/srnn',this.node).getComponent(cc.Button).node.on('click',function(){
+            
+            cc.director.loadScene('Game');
+
+        },this);
+
+         // 百人牛牛
+         cc.find('Games/brnn',this.node).getComponent(cc.Button).node.on('click',function(){
+            
+            cc.director.loadScene('Game');
+
+        },this);
+
+    }
+    
 });

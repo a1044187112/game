@@ -13,9 +13,6 @@ cc.Class({
             // 删除窗口
             this.node.destroy();
             
-            // 打开 所有按钮功能
-            cc.find('Canvas').getComponent('HallButton').CloseBtn(true);
-
         },this);
 
     },

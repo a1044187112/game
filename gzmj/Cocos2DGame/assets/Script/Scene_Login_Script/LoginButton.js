@@ -22,9 +22,9 @@ cc.Class({
             let data = "name=test&age=16&id=05";
 
             // 解析传送过来的 JSON 数据
-            let test = JSON.parse(this.http("POST",url,data));
+            // let test = JSON.parse(this.http("POST",url,data));
 
-            if (test.state = "success") {
+            // if (test.state = "success") {
                 
                 // 获取勾选框
                 let isCked = cc.find('toggle',this.node).getComponent(cc.Toggle).isChecked;
@@ -34,7 +34,7 @@ cc.Class({
                     // 场景跳转
                     cc.director.loadScene("Hall");
                     
-                    console.log(test);
+                    // console.log(test);
 
                 }else{
                     
@@ -43,11 +43,11 @@ cc.Class({
                 }
 
 
-            }else{
+            // }else{
 
-                console.log("登录失败");
+            //     console.log("登录失败");
 
-            }
+            // }
 
         },this);
 

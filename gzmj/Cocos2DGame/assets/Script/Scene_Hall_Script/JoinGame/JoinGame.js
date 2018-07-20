@@ -19,8 +19,6 @@ cc.Class({
 
             this.node.destroy();
 
-            cc.find('Canvas').getComponent('HallButton').CloseBtn(true);
-
         },this);
 
         this.GameNumber();

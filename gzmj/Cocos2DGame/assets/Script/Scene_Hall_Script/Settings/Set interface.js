@@ -14,12 +14,6 @@ cc.Class({
         out.node.on('click',function(){
             // 删除窗口
             this.node.destroy();
-
-            if(cc.find('Canvas').getComponent('HallButton')){
-                // 打开 所有按钮功能
-                cc.find('Canvas').getComponent('HallButton').CloseBtn(true);
-            }
-
         },this);
 
         // 注销事件

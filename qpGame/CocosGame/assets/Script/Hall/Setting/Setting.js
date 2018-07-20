@@ -17,6 +17,19 @@ cc.Class({
 
         },this);
 
+        let scene = cc.director.getScene();
+
+        if(scene.name == 'Game'){
+
+            cc.find('Esc',this.node).getComponent(cc.Button).node.on('click',function(){
+
+                cc.director.loadScene('Hall');
+
+            },this);
+
+        }
+        
+
     },
 
     // update (dt) {},
