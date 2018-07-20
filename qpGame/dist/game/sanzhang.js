@@ -13,6 +13,7 @@ var sanzhang = function () {
 		_classCallCheck(this, sanzhang);
 
 		this.user = userArr;
+		this.totalMoney; // 下注总金额
 	}
 
 	_createClass(sanzhang, [{
@@ -67,7 +68,7 @@ var sanzhang = function () {
 	}, {
 		key: "cardsType",
 		value: function cardsType(c, cColor) {
-			// 将每一种牌看为一个16进制数 将其转换为10进制 比如最大的普通牌为AKJ，
+			//将每一种牌看为一个16进制数 将其转换为10进制 比如最大的普通牌为AKJ，
 			//其16进制数值为edc，转为10进制则AKJ牌值=14x16x16+13x16+11=3803
 			// 将对子放在牌的前两位 最大普通牌大小的基础上，加上对子牌的本身大小 AAK牌值=14x16+13=237
 			//顺子，取最小的那个数，加上最大的对子牌值，比如最大的顺子AKQ牌值=12+4040=4052。最小的顺子A32，A取1，值4041
@@ -102,6 +103,15 @@ var sanzhang = function () {
 				// 普通牌型
 				return c[0] * 16 * 16 + c[1] * 16 + c[2];
 			}
+		}
+
+		// 玩家下注
+
+	}, {
+		key: "playerBet",
+		value: function playerBet(playerId, money) {
+
+			this.totalMoney += money; //  下注总金额 
 		}
 	}, {
 		key: "gameStart",

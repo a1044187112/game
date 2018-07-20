@@ -5,7 +5,7 @@ var http = require('http').Server(app);
 var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var log = require('./log/log');
-
+var io = require('socket.io').listen(http);
 var user = require('./user/user');
 
 // dbcon.insert();
@@ -43,6 +43,17 @@ app.post('/modify/info', urlencodedParser, function (req, res) {
   }
   var data = req.body;
   user.modifyUserInfo(data, res); // 如果数据库中没有该用户  则添加该用户 如果存在 则返回用户信息
+});
+
+io.sockets.on('connection', function (socket) {
+  console.log('User connected');
+  socket.join("123456", function () {
+    var rooms = socket.rooms;
+    console.log(rooms);
+  });
+  // socket.on('disconnect',function(){
+  //     console.log('User disconnected');
+  // }); 
 });
 
 http.listen(3000);
