@@ -22,7 +22,7 @@ export default class sanzhang{
 			let userCard = [this.user[i]];
 			for(let j = 0 ; j < 3 ; j++){
 
-				let index = Math.round(Math.random()*cards.length);
+				let index = parseInt(Math.random()*cards.length);
 				userCard.push(cards[index]); 
 				cards.splice(index,1);
 			}

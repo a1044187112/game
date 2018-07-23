@@ -8,7 +8,9 @@ let log = require('./log/log');
 let io = require('socket.io').listen(http);
 let user = require('./user/user');
 
+import NNIO from './socket/io.nn.js';
 
+console.log(NNIO);
 // dbcon.insert();
 log.use(app); 
 
@@ -47,16 +49,14 @@ app.post('/modify/info',urlencodedParser,function(req,res){
   user.modifyUserInfo(data,res);// 如果数据库中没有该用户  则添加该用户 如果存在 则返回用户信息
 }); 
 
-io.sockets.on('connection',function(socket){
-    console.log('User connected');
-    socket.join("123456",() => {
-      let rooms = socket.rooms;
-      console.log(rooms);
-    });
-    // socket.on('disconnect',function(){
-    //     console.log('User disconnected');
-    // }); 
+app.get('/nn', function(req, res) {
+    console.log("-------牛牛chang");
+   let nnio = new NNIO(io);
+   nnio.router();
+    res.send('牛牛长连接');
 });
+
+
 
 
 

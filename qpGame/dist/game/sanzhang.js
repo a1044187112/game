@@ -38,7 +38,7 @@ var sanzhang = function () {
 				var userCard = [this.user[i]];
 				for (var j = 0; j < 3; j++) {
 
-					var index = Math.round(Math.random() * cards.length);
+					var index = parseInt(Math.random() * cards.length);
 					userCard.push(cards[index]);
 					cards.splice(index, 1);
 				}

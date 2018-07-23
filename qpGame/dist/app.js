@@ -1,5 +1,11 @@
 'use strict';
 
+var _ioNn = require('./socket/io.nn.js');
+
+var _ioNn2 = _interopRequireDefault(_ioNn);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var app = require('express')();
 var http = require('http').Server(app);
 var bodyParser = require('body-parser');
@@ -8,6 +14,7 @@ var log = require('./log/log');
 var io = require('socket.io').listen(http);
 var user = require('./user/user');
 
+console.log(_ioNn2.default);
 // dbcon.insert();
 log.use(app);
 
@@ -45,15 +52,11 @@ app.post('/modify/info', urlencodedParser, function (req, res) {
   user.modifyUserInfo(data, res); // 如果数据库中没有该用户  则添加该用户 如果存在 则返回用户信息
 });
 
-io.sockets.on('connection', function (socket) {
-  console.log('User connected');
-  socket.join("123456", function () {
-    var rooms = socket.rooms;
-    console.log(rooms);
-  });
-  // socket.on('disconnect',function(){
-  //     console.log('User disconnected');
-  // }); 
+app.get('/nn', function (req, res) {
+  console.log("-------牛牛chang");
+  var nnio = new _ioNn2.default(io);
+  nnio.router();
+  res.send('牛牛长连接');
 });
 
 http.listen(3000);
