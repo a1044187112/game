@@ -10,8 +10,6 @@ let user = require('./user/user');
 
 import NNIO from './socket/io.nn.js';
 
-console.log(NNIO);
-// dbcon.insert();
 log.use(app); 
 
 
@@ -25,10 +23,11 @@ res.header("Access-Control-Allow-Origin", "*");
     if(req.method=="OPTIONS") res.send(200);/*让options请求快速返回*/
     next();
 });
-
 app.get('/', function(req, res) {
     console.log('tes');
     res.send('凯恩!');
+    // let nnio = new NNIO(io)
+   // nnio.router();
 });
 
 app.post('/login',urlencodedParser,function(req,res){
@@ -49,14 +48,19 @@ app.post('/modify/info',urlencodedParser,function(req,res){
   user.modifyUserInfo(data,res);// 如果数据库中没有该用户  则添加该用户 如果存在 则返回用户信息
 }); 
 
-app.get('/nn', function(req, res) {
+app.post('/nn', function(req, res) {
+
     console.log("-------牛牛chang");
    let nnio = new NNIO(io);
    nnio.router();
     res.send('牛牛长连接');
 });
 
-
+io.sockets.on('connection',function(socket){
+        console.log('User connected');
+        let nnio = new NNIO(socket);
+        nnio.router();
+      })
 
 
 

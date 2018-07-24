@@ -14,8 +14,6 @@ var log = require('./log/log');
 var io = require('socket.io').listen(http);
 var user = require('./user/user');
 
-console.log(_ioNn2.default);
-// dbcon.insert();
 log.use(app);
 
 app.all("*", function (req, res, next) {
@@ -28,10 +26,11 @@ app.all("*", function (req, res, next) {
   if (req.method == "OPTIONS") res.send(200); /*让options请求快速返回*/
   next();
 });
-
 app.get('/', function (req, res) {
   console.log('tes');
   res.send('凯恩!');
+  // let nnio = new NNIO(io)
+  // nnio.router();
 });
 
 app.post('/login', urlencodedParser, function (req, res) {
@@ -52,11 +51,18 @@ app.post('/modify/info', urlencodedParser, function (req, res) {
   user.modifyUserInfo(data, res); // 如果数据库中没有该用户  则添加该用户 如果存在 则返回用户信息
 });
 
-app.get('/nn', function (req, res) {
+app.post('/nn', function (req, res) {
+
   console.log("-------牛牛chang");
   var nnio = new _ioNn2.default(io);
   nnio.router();
   res.send('牛牛长连接');
+});
+
+io.sockets.on('connection', function (socket) {
+  console.log('User connected');
+  var nnio = new _ioNn2.default(socket);
+  nnio.router();
 });
 
 http.listen(3000);

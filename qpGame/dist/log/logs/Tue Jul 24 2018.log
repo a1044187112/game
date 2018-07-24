@@ -1,0 +1,3 @@
+[2018-07-24T10:51:08.780] [INFO] logFile - ::ffff:127.0.0.1 - - "GET /nn HTTP/1.1" 200 15 "" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.10 Safari/537.36"
+[2018-07-24T10:51:08.854] [INFO] logFile - ::ffff:127.0.0.1 - - "GET /favicon.ico HTTP/1.1" 404 150 "http://127.0.0.1:3000/nn" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.10 Safari/537.36"
+[2018-07-24T11:02:27.474] [INFO] logFile - ::ffff:127.0.0.1 - - "GET / HTTP/1.1" 200 7 "" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.10 Safari/537.36"

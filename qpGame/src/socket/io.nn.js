@@ -1,46 +1,51 @@
 export default class NNIO{
-	constructor(io){
-		this.io = io;
+	constructor(socket){
+		this.socket = socket;
 		//this.router();
 	}
 
 	router(){
+		 let _self = this;
 		console.log("socket连接测试");
-		this.io.sockets.on('connection',function(socket){
+		// this.io.sockets.on('connection',function(socket){
 		    console.log('User connected');
 
-		    socket.on('join',function(data){
+		    this.socket.on('join',function(data){
 		    	console.log("点击加入房间");
 		    })
 
-		     socket.on('ready',function(data){
+		     this.socket.on('ready',function(data){
 		    	console.log("点击准备");
+		    	console.log(data);
+		    	 _self.socket.emit('getCardThree',"555555555555"); // 发送前三张牌
+		    	  _self.socket.broadcast.emit('getCardThree', 'hello friends!');
 		    })
 
-		    socket.emit('getCardThree',""); // 发送前三张牌
+		   
 
-		    socket.on('banker',function(data){
+		    this.socket.on('banker',function(data){
 		    	console.log("点击抢庄");
 		    })
 
-		    socket.on('magnification',function(data){
+		    this.socket.on('magnification',function(data){
 		    	console.log("点击倍数选择");
+		    	console.log(_self.socket.client.length);
 		    })
 
-		    socket.emit('getCardTwo',""); // 发送前两张牌
+		    this.socket.emit('getCardTwo',""); // 发送前两张牌
 		    
 		    // socket.join("123456",() => {
 		    //   let rooms = socket.rooms;
 		    //   console.log(rooms);  
 		    // });
 
-
-		    socket.on('exit',function(data){
-		    	socket.on('disconnect',function(){
+		   
+		    this.socket.on('exit',function(data){
+		    	_self.socket.on('disconnect',function(){
 			        console.log('User disconnected');
 			    }); 
 		    })
 		    
-		});
+		// });
 	}
 }
