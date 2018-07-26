@@ -3,10 +3,11 @@ cc.Class({
 
     properties: {
 
-        tree_number: 10,
+        tree_number: 50,
 
-        flower_number: 100,
+        flower_number: 50,
 
+        
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -22,6 +23,18 @@ cc.Class({
 
         }
 
+        // 各种树的名字
+        let name = ['1','2','3','4','5','tree_2','tree_3','tree_4','tree_5','tree_6'];
+        // 穿件场景
+        for (let i = 0; i < this.tree_number; i++) {
+            
+                for (let i = 0; i < name.length; i++) {
+                    
+                    this.Tree(name[i]);
+                    
+                }
+            
+        }
 
     },
 
@@ -46,15 +59,7 @@ cc.Class({
             
         })
 
-
-        flower.setPosition(-(3840 / 2),-(2160 / 2));
-
-        let x = flower.x + Math.random() * 3840;
-
-        let h = flower.y + Math.random() * 2160;
-        
-        // 随机位置
-        flower.setPosition(x,h);
+        this.RandomPos(flower);
 
         cc.find('scrollview/view/content',this.node).addChild(flower);
 
@@ -62,7 +67,54 @@ cc.Class({
     },
 
     // 创建 场景 里的树函数
-    Tree () {
+    Tree (name) {
+
+        let ter = new Array();
+
+        let target = this;
+
+        // 定义树的变量
+        let terr;
+
+        cc.loader.loadRes('Tree',function(err,prefab){
+
+            if(prefab){
+
+                terr = cc.instantiate(prefab);
+                
+                cc.loader.loadRes('Texture/tree',cc.SpriteAtlas,function(err,atlas){
+    
+                        let frame = atlas.getSpriteFrame(name);
+                        
+                        terr.getComponent(cc.Sprite).spriteFrame = frame;
+
+                        target.RandomPos(terr);
+
+                        cc.find('scrollview/view/content',target.node).addChild(terr);
+                })
+                
+            }else{
+
+                console.log(err);
+
+            }
+
+        })
+        
+
+    },
+
+    // 随机位置函数
+    RandomPos (target) {
+
+        target.setPosition(-(3840 / 2),-(2160 / 2));
+
+        let x = target.x + Math.random() * 3840;
+
+        let h = target.y + Math.random() * 2000;
+        
+        // 随机位置
+        target.setPosition(x,h);
 
     },
 });
